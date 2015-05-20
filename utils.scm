@@ -79,3 +79,18 @@
     (lambda (x)
       (fluid-let ((standard-error-hook x))
         (proc)))))
+
+;;;;
+;; Y
+;;  Fixed-point combinator Y
+;;
+;; @param f - proc
+;; @return proc
+(define Y
+  (lambda (f)
+    ((lambda (x)
+       (f (lambda y
+          	(apply (x x) y))))
+     (lambda (x)
+       (f (lambda y
+          	(apply (x x) y)))))))
