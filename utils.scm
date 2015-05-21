@@ -25,17 +25,6 @@
       (if pred (begin exp ...)))))
 
 ;;;;
-;; funcall
-;;  Lisp-like funcall. Applies args to p.
-;;
-;; @param p - Procedure
-;; @param args ... - Arguments (Expressions)
-(define-syntax funcall
-  (syntax-rules ()
-    ((funcall p args ...)
-      (apply (if (procedure? p) p (eval p (nearest-repl/environment))) (list args ...)))))
-
-;;;;
 ;; promisify
 ;;  Ensures that object is a promise
 ;;
